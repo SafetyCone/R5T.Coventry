@@ -25,6 +25,10 @@ namespace R5T.Coventry.Construction
             var value01 = configuration["Value01"];
 
             Console.WriteLine($"Value01: {value01}");
+
+            var gitHubUsername = configuration["GitHubAuthentication:UserName"];
+
+            Console.WriteLine($"GitHub username: {gitHubUsername}");
         }
 
         private static IServiceProvider GetServiceProvider()
