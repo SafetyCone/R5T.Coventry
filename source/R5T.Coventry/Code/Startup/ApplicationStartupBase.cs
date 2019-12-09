@@ -17,6 +17,9 @@ namespace R5T.Coventry
         {
         }
 
+        /// <summary>
+        /// Adds default and configuration name-specific appsettings.json files.
+        /// </summary>
         protected override void ConfigureConfigurationBody(IConfigurationBuilder configurationBuilder, IServiceProvider configurationServicesProvider)
         {
             configurationBuilder
