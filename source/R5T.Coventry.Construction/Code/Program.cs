@@ -3,7 +3,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using R5T.Derby;
 using R5T.Richmond;
 
 
@@ -33,7 +32,7 @@ namespace R5T.Coventry.Construction
 
         private static IServiceProvider GetServiceProvider()
         {
-            var serviceProvider = ApplicationBuilder.UseStartup<Startup, ApplicationConfigurationStartup>();
+            var serviceProvider = ApplicationBuilder.New().UseStartupFromCoventryWithDerbyConfigurationStartup<Startup>();
             return serviceProvider;
         }
     }
