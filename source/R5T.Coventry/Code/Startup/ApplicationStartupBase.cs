@@ -3,7 +3,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-using R5T.Coventry.Extensions;
+using R5T.Derby.Extensions;
 
 using RichmondApplicationStartupBase = R5T.Richmond.ApplicationStartupBase;
 
@@ -20,10 +20,10 @@ namespace R5T.Coventry
         /// <summary>
         /// Adds default and configuration name-specific appsettings.json files.
         /// </summary>
-        protected override void ConfigureConfigurationBody(IConfigurationBuilder configurationBuilder, IServiceProvider configurationServicesProvider)
+        protected override void ConfigureConfigurationBody(IConfigurationBuilder configurationBuilder, IServiceProvider configurationServiceProvider)
         {
             configurationBuilder
-                .AddDefaultAndConfigurationNameSpecificAppSettings(configurationServicesProvider)
+                .AddDefaultAndConfigurationSpecificAppSettingsJsonFiles(configurationServiceProvider, true) // Make the configuration-name-specific appsettings file optional since all configuration might just be in the default appsettings file.
                 ;
         }
     }
