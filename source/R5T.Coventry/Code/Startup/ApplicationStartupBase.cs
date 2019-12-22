@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using R5T.Derby.Extensions;
@@ -25,6 +26,17 @@ namespace R5T.Coventry
             configurationBuilder
                 .AddDefaultAndConfigurationSpecificAppSettingsJsonFiles(configurationServiceProvider, true) // Make the configuration-name-specific appsettings file optional since all configuration might just be in the default appsettings file.
                 ;
+        }
+
+        /// <summary>
+        /// Adds console logging.
+        /// </summary>
+        protected override void ConfigureServicesBody(IServiceCollection services)
+        {
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddConsole();
+            });
         }
     }
 }
