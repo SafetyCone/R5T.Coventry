@@ -13,6 +13,9 @@ using RichmondApplicationStartupBase = R5T.Richmond.ApplicationStartupBase;
 
 namespace R5T.Coventry
 {
+    /// <summary>
+    /// Adds default and configuration name-specific JSON AppSettings files, and console logging and a configuration name provider.
+    /// </summary>
     public abstract class ApplicationStartupBase : RichmondApplicationStartupBase
     {
         public ApplicationStartupBase(ILogger<ApplicationStartupBase> logger)
@@ -21,7 +24,7 @@ namespace R5T.Coventry
         }
 
         /// <summary>
-        /// Adds default and configuration name-specific appsettings.json files.
+        /// Adds default- and configuration name-specific appsettings.json files.
         /// </summary>
         protected override void ConfigureConfigurationBody(IConfigurationBuilder configurationBuilder, IServiceProvider configurationServiceProvider)
         {
