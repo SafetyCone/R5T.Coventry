@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 
 using R5T.Ives;
 using R5T.Ives.Configuration;
+using R5T.Sardinia;
 using R5T.Shrewsbury.Extensions;
 
 using RichmondApplicationStartupBase = R5T.Richmond.ApplicationStartupBase;
@@ -38,10 +39,15 @@ namespace R5T.Coventry
         /// </summary>
         protected override void ConfigureServicesBody(IServiceCollection services)
         {
+            var configuration = services.GetConfiguration();
+
             services
                 .AddLogging(loggingBuilder =>
                 {
-                    loggingBuilder.AddConsole();
+                    loggingBuilder
+                        .AddConfiguration(configuration.GetSection("Logging"))
+                        .AddConsole()
+                        ;
                 })
                 .AddSingleton<IConfigurationNameProvider, DirectConfigurationBasedConfigurationNameProvider>()
                 ;
