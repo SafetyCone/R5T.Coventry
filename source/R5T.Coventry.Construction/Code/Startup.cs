@@ -22,7 +22,7 @@ namespace R5T.Coventry.Construction
             base.ConfigureConfigurationBody(configurationBuilder, configurationServicesProvider);
 
             configurationBuilder
-                .AddRivetUserSecretsFile(configurationServicesProvider, "Authentication-GitHub.json")
+                .AddRivetUserSecretsJsonFile(configurationServicesProvider, "Authentication-GitHub.json")
                 ;
         }
     }
